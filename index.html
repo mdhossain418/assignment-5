@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issues Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="login.js" defer></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded shadow-md w-96">
+        <div class="flex flex-col items-center mb-6">
+            <img src="./github-logo.png" alt="GitHub" class="w-12 mb-4">
+            <h2 class="text-2xl font-bold mb-2">GitHub Issues Tracker</h2>
+            <p class="text-gray-600">Sign in to manage your issues</p>
+        </div>
+        <form id="loginForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium">Username</label>
+                <input type="text" name="username" id="username" class="w-full mt-1 p-2 border rounded focus:outline-none focus:ring focus:border-blue-300">
+            </div>
+            <div>
+                <label class="block text-sm font-medium">Password</label>
+                <input type="password" name="password" id="password" class="w-full mt-1 p-2 border rounded focus:outline-none focus:ring focus:border-blue-300">
+            </div>
+            <div class="flex items-center">
+                <input type="checkbox" name="remember" class="mr-2">
+                <label class="text-sm text-gray-700">Remember me</label>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Sign In</button>
+        </form>
+        <div class="text-center mt-6 bg-gray-50 p-4 rounded">
+            <p class="text-sm">OR</p>
+            <p class="text-sm mt-2">Demo Credential</p>
+            <p class="text-sm">Username: admin</p>
+            <p class="text-sm">Password: admin123</p>
+        </div>
+    </div>
+</body>
+</html>
