@@ -6,7 +6,7 @@ const loginForm = document.getElementById('loginForm');
             
             if (username === 'admin' && password === 'admin123') {
                 // Redirect to the dashboard page (replace with your dashboard file)
-                window.location.href = 'main.html';
+                window.location.href = ' m index.html';
             } else {
                 alert('Invalid login');
             }

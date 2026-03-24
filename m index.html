@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GitHub Issues Tracker</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="script.js"></script>
+
+
+</head>
+
+<body class="bg-white">
+
+<div class="max-w-5xl mx-auto px-6">
+
+<!-- HEADER -->
+<div class="py-6 flex items-center justify-between">
+
+<h1 class="text-xl font-bold">All Issues</h1>
+
+<div class="flex items-center gap-2">
+
+<input 
+id="searchInput"
+type="text"
+placeholder="Search issues..."
+class="border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-400"
+/>
+
+<button 
+onclick="searchIssues()"
+class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700"
+>
+Search
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FILTER BUTTON -->
+<div class="flex gap-2 mb-6">
+
+<button id="btn-all"
+onclick="filterIssues('all',this)"
+class="filter-btn px-4 py-1 rounded bg-blue-600 text-white">
+All
+</button>
+
+<button id="btn-open"
+onclick="filterIssues('open',this)"
+class="filter-btn px-4 py-1 rounded bg-gray-200">
+Open
+</button>
+
+<button id="btn-closed"
+onclick="filterIssues('closed',this)"
+class="filter-btn px-4 py-1 rounded bg-gray-200">
+Closed
+</button>
+
+</div>
+
+
+<!-- ISSUE COUNT -->
+
+<div class="border rounded-xl p-4 flex items-center justify-between shadow-sm mb-6">
+
+<div class="flex items-center gap-3">
+
+<div class="bg-purple-100 text-purple-600 p-2 rounded-lg">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 5a2 2 0 002 2h2a2 2 0 002-2"/>
+</svg>
+</div>
+
+<div>
+<h3 class="font-semibold text-lg">
+<span id="issueCount">0</span> Issues
+</h3>
+
+<p class="text-gray-500 text-sm">
+Track and manage your project issues
+</p>
+</div>
+
+</div>
+
+
+<div class="flex items-center gap-4 text-sm">
+
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 bg-green-500 rounded-full"></span>
+Open
+</div>
+
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+Closed
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ISSUES LIST -->
+
+<div id="issuesContainer"  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-10">
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div id="issueModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
+
+  <div class="bg-white rounded-xl w-[600px] max-w-[95%] p-6 relative shadow-xl">
+
+    <!-- Close -->
+    <button onclick="closeModal()" 
+      class="absolute top-4 right-5 text-gray-400 hover:text-black text-lg">
+      ✕
+    </button>
+
+    <!-- Title -->
+    <h2 id="modalTitle" class="text-2xl font-bold mb-2"></h2>
+
+    <!-- Meta -->
+    <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+      <span class="text-green-600 font-semibold">Opened</span>
+      <span>•</span>
+      <span id="modalMeta"></span>
+    </div>
+
+    <!-- Labels -->
+    <div id="modalLabels" class="flex gap-2 mb-4"></div>
+
+    <!-- Description -->
+    <p id="modalDescription" class="text-gray-600 mb-6"></p>
+
+    <!-- Bottom Section -->
+    <div class="flex justify-between items-center bg-gray-100 p-2 rounded">
+
+      <!-- Assignee -->
+      <div>
+        <p class="text-xs text-gray-400">Assignee</p>
+        <p id="modalAssignee" class="text-sm font-medium text-gray-700"></p>
+      </div>
+
+      <!-- Priority -->
+      <div class="text-right">
+        <p class="text-xs text-gray-400">Priority</p>
+        <span id="modalPriority" class="text-xs px-3 py-1 rounded-full"></span>
+      </div>
+
+    </div>
+
+    <!-- Button -->
+    <div class="flex justify-end mt-6">
+      <button onclick="closeModal()" 
+        class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+        Close
+      </button>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
+
+
+
+
